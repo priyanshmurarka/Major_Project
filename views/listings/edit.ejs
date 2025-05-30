@@ -1,0 +1,96 @@
+<% layout("./layouts/boilerplate") %>
+<body>
+  <h3 class="mb-3 mt-3 offset-2">Edit your Listing</h3>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <form
+        method="post"
+        action="/listings/<%= listing._id %>?_method=PUT"
+        novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title:</label>
+          <input
+            type="text"
+            name="listing[title]"
+            value="<%=listing.title%>"
+            class="form-control"
+            required
+          />
+           <div class="valid-feedback">
+            Title looks good.
+          </div>
+          <div class="invalid-feedback">Title should be valid</div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description:</label>
+          <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+          <div class="invalid-feedback">Description should be valid</div>
+        </div>
+        <div class="mb-3">
+          <label for="filename" class="form-label">Image Name:</label>
+          <input
+            type="text"
+            name="listing[image][filename]"
+            class="form-control"
+            value="<%=listing.image.filename %>"
+            required
+          />
+          <div class="invalid-feedback">Filename should be valid</div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload New Image:</label>
+          <input
+            type="file"
+            name="listing[image][url]"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="imagePreview" class="form-label">Original Image:</label>
+          <br>
+          <img class="previewimage" src="<%= originalImageUrl %>">
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price:</label>
+          <input
+            type="number"
+            name="listing[price]"
+            class="form-control"
+            value="<%=listing.price %>"
+            required
+          />
+          <div class="invalid-feedback">Price should be valid</div>
+        </div>
+        <div class="mb-3">
+          <label for="location" class="form-label">Location:</label>
+          <input
+            type="text"
+            name="listing[location]"
+            class="form-control"
+            value="<%=listing.location %>"
+            required
+          />
+          <div class="invalid-feedback">Location should be valid</div>
+        </div>
+        <div class="mb-3">
+         <label for="country" class="form-label">Country:</label>
+          <input
+            type="text"
+            name="listing[country]"
+            class="form-control"
+            value="<%=listing.country %>"
+            required
+          />
+         <div class="invalid-feedback">Country should be valid</div>
+        </div>
+
+        <div class="mb-3">
+          <button type="submit" class="btn btn dark subedit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
