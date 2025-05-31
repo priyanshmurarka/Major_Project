@@ -151,6 +151,19 @@ text-decoration: underline;
 .show-img{
     height: 80vh;
 }
+
+@media screen and (max-width: 600px) {
+  .show-img {
+    height: 50vh; 
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .show-img {
+    height: 40vh; 
+  }
+}
+
 .showbtns{
     display: flex;
     flex-direction: row;
@@ -199,6 +212,13 @@ gap: .5rem;
 {
      height: 400px;
      width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  #map {
+    height: 200px; 
+    width: 100%;
+  }
 }
 
 
